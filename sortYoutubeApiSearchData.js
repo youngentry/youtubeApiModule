@@ -1,7 +1,5 @@
-/////////////////////////////////////////////////////
-////////// Youtube Api Search 검색 결과 예시 /////////
+// Youtube Api Search 검색 결과 예시 
 // https://developers.google.com/youtube/v3/docs/search/list?hl=ko&apix=true&apix_params=%7B%22part%22%3A%5B%22snippet%22%5D%2C%22maxResults%22%3A1%2C%22order%22%3A%22date%22%2C%22q%22%3A%22%EC%9C%A4%EC%84%B1%EB%B9%88%22%2C%22regionCode%22%3A%22kr%22%2C%22type%22%3A%5B%22video%22%5D%7D#%EC%A7%81%EC%A0%91-%EC%82%AC%EC%9A%A9%ED%95%B4-%EB%B3%B4%EC%84%B8%EC%9A%94
-/////////////////////////////////////////////////////
 const mockData = {
   kind: "youtube#searchListResponse",
   etag: "ciheMR_7QpXBNB8tZTdUzyCkgWU",
@@ -49,9 +47,7 @@ const mockData = {
   ],
 };
 
-/////////////////////////////////////
-////////// 한국 시간으로 변환 ////////
-/////////////////////////////////////
+
 /**
  * 유튜브 업로드 시간(publishedAt)과 한국 시간에 차이 없앰
  * @param {*} datePST
@@ -64,9 +60,6 @@ export const utcToKor = (datePST) => {
   return krTime;
 };
 
-//////////////////////////////////////
-////////////// 기능 클래스 ////////////
-//////////////////////////////////////
 export class SearchVideo {
   #videoArray;
 
@@ -176,9 +169,6 @@ export class SearchVideo {
   }
 }
 
-/////////////////////////////////////
-////////////// 실행 함수 ////////////
-////////////////////////////////////
 export const createSearchVideoInformation = (searchResult1, ...otherSearchResults) => {
   const searchVideo = new SearchVideo(searchResult1);
   const searchVideoDataArray = searchVideo.getSearchVideoDataArray();
